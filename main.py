@@ -48,7 +48,7 @@ def record_tle():
                     cuava_2_tle = fetch_tle(C2_NORAD_ID)
 
                     # Combine the TLE data
-                    tle_data = f"WaratahSeed-1 TLE:\n{waratahseed_1_tle}\n\nCUAVA-2 TLE:\n{cuava_2_tle}"
+                    tle_data = f"{waratahseed_1_tle}\n\n{cuava_2_tle}\n"
 
                     # Write the TLE data to the file
                     write_tle_to_file(filename, tle_data)
