@@ -2,6 +2,8 @@ import requests
 from datetime import datetime, timedelta
 import pytz
 import time
+import os  # Add this import for handling directories
+
 
 # Replace with the actual NORAD IDs for WaratahSeed-1 and CUAVA-2
 WS1_NORAD_ID = "60469"   
@@ -29,6 +31,10 @@ def record_tle():
 
     # Define the target times (10 AM and 10 PM) with a 5-minute offset
     target_times = [10, 22]  # 10 AM and 10 PM in 24-hour format
+    
+    # Ensure the TLE_log directory exists
+    log_dir = "TLE_log"
+    os.makedirs(log_dir, exist_ok=True)
 
     while True:
         # Get the current time in Sydney timezone
@@ -40,7 +46,7 @@ def record_tle():
             if target_time <= now < target_time + timedelta(minutes=1):  # Execute within the 1-minute window
                 today = now.date()
                 time_str = now.strftime("%H-%M")
-                filename = f"{today}_{time_str}.txt"
+                filename = os.path.join(log_dir, f"{today}_{time_str}.txt")  # Save in TLE_log directory
 
                 try:
                     # Fetch TLE data for both satellites

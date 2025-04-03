@@ -15,6 +15,7 @@ Features:
 Requirements:
 -------------
 - Python 3.x
+- Screen
 - Required Python libraries:
   - `requests`
   - `pytz`
@@ -22,4 +23,29 @@ Requirements:
 Installation:
 -------------
 1. Clone or download this repository to your local machine.
-2. Install the required Python libraries using pip:
+2. Install the required Python libraries using pip
+
+tle-pass-predictor
+├── src
+│   ├── main.py        # Main script for fetching TLE data and managing command execution
+├── Tools               # Tools
+│   └── tle_parser.py       # Utility functions for TLE fetching and time calculations
+└── README.md           # Documentation for the project
+
+
+Usage
+-------------
+python3 main.py (Screen recommanded)
+python3 Tools/tle_paser.py
+
+
+Screen
+-------------
+Screen is recommanded to run the threads without interuption
+
+Install Screen: Sudo apt install screen
+Start new Screen session: screen -S $name
+Detach Screen without ending it: Ctrl-A, D
+Resume Screen screen -rx $name
+
+Exit Screen: Ctrl-D or exit
